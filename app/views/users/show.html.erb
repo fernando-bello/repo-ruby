@@ -1,0 +1,15 @@
+<% content_for :title, @user.name %>
+
+<% if notice.present? %>
+  <p class="notice" role="status"><%= notice %></p>
+<% end %>
+
+<h1><%= @user.name %></h1>
+
+<p><strong>E-mail:</strong> <%= @user.email %></p>
+<p><strong>Cadastrado em:</strong> <%= l @user.created_at, format: :long %></p>
+
+<p>
+  <%= link_to "Voltar para a lista", users_path %> |
+  <%= link_to "Novo cadastro", new_user_path %>
+</p>

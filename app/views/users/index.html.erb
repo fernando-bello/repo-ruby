@@ -1,0 +1,28 @@
+<% content_for :title, "Usuários" %>
+
+<h1>Usuários cadastrados</h1>
+
+<% if @users.empty? %>
+  <p>Nenhum usuário cadastrado ainda.</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Cadastrado em</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.name, user %></td>
+          <td><%= user.email %></td>
+          <td><%= l user.created_at, format: :short %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<p><%= link_to "Novo cadastro", new_user_path %></p>
